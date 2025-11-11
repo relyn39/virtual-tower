@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.python-version
+*.DS_Store
+.env
+.venv
+venv/
+
+# Streamlit cache
+.streamlit/secrets.toml
+.streamlit/cache/
+.streamlit/*.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Notebooks/analysis artifacts
+*.ipynb_checkpoints
