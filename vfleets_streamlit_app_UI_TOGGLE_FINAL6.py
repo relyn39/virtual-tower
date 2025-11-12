@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="VFleets - Janelas Críticas (Final 9)", layout="wide")
+st.set_page_config(page_title="VFleets - Janelas Críticas", layout="wide")
 
 DEFAULT_PESOS = {
     "EXCESSO_VELOCIDADE_BAIXO": 0,  # Ignora nível baixo (até 20%) para pontuação
@@ -248,8 +248,8 @@ def ranking_criticos(df_resultados: pd.DataFrame):
     best = best.sort_values(["ord","Data/Hora"], ascending=[False,False])
     return best[["Entidade","Tipo de Entidade","Último Nível","Data/Hora"]]
 
-st.title("VFleets - Janela Crítica (Final 9)")
-up = st.file_uploader("Envie um CSV de alertas (TIPO em H, NIVEL em I, ROTULO em J)", type=["csv"])
+st.title("VFleets - Janela Crítica")
+up = st.file_uploader("Envie um CSV do análise de alertas do Vfleets", type=["csv"])
 
 with st.sidebar:
     st.subheader("Parâmetros")
@@ -318,7 +318,7 @@ if up is not None:
 
             st.success("Classificação concluída!")
 
-            st.subheader("Resultados (legíveis)")
+            st.subheader("Resultados")
             legiveis = format_resultados_for_display(resultados)
             st.dataframe(legiveis, use_container_width=True, height=500)
 
@@ -337,7 +337,7 @@ if up is not None:
             # Força xlsxwriter para evitar dependência de openpyxl
             writer = pd.ExcelWriter(buf, engine="xlsxwriter")
             with writer as w:
-                legiveis.to_excel(w, sheet_name="Resultados (legíveis)", index=False)
+                legiveis.to_excel(w, sheet_name="Resultados", index=False)
                 resultados.to_excel(w, sheet_name="Resultados (raw)", index=False)
                 rank.to_excel(w, sheet_name="Ranking", index=False)
             st.download_button("Baixar Excel", data=buf.getvalue(),
