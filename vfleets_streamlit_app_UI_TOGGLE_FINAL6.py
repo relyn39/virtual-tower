@@ -225,10 +225,10 @@ def format_resultados_for_display(df: pd.DataFrame) -> pd.DataFrame:
     out["Motorista"] = out["motorista"].mask(out["motorista"].eq("Sem Identificação"), "")
     out["Placa"] = out["placa"]
     out["Soma na Janela (min)"] = out["window_total"].round(0).astype("Int64")
-    out["Crítico?"] = out["critico"].map({True:"Sim", False:"Não"})
+    out["Situação Crítica?"] = out["critico"].map({True:"Sim", False:"Não"})
     out["Nível"] = out["nivel"].fillna("")
     out["Detalhe"] = out["detalhe"].fillna("")
-    cols = ["Data/Hora","Tipo","Peso","Motorista","Placa","Soma na Janela (min)","Crítico?","Nível","Janela Início","Janela Fim","Detalhe"]
+    cols = ["Data/Hora","Tipo","Peso","Motorista","Placa","Soma na Janela (min)","Situação Crítica?","Nível","Janela Início","Janela Fim","Detalhe"]
     return out[cols]
 
 def ranking_criticos(df_resultados: pd.DataFrame):
