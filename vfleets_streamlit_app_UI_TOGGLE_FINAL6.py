@@ -710,7 +710,7 @@ with st.sidebar:
 
     count_from_shift_start = st.checkbox(
         "Contar N1, N2 e N3 apenas a partir do início do expediente",
-        value=False,
+        value=True,
         help="Se marcado, as Situações Críticas só começam a gerar N1/N2/N3 a partir do horário de início do expediente.",
     )
 
