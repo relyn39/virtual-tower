@@ -10,8 +10,8 @@ st.set_page_config(page_title="VFleets - Janelas Críticas", layout="wide")
 
 DEFAULT_PESOS = {
     "EXCESSO_VELOCIDADE_BAIXO": 0,  # Ignora nível baixo (até 20%) para pontuação
-    "EXCESSO_VELOCIDADE_MEDIO": 7,
-    "EXCESSO_VELOCIDADE_ALTO": 13,
+    "EXCESSO_VELOCIDADE_MEDIO": 100,
+    "EXCESSO_VELOCIDADE_ALTO": 100,
     "FADIGA_DO_MOTORISTA": 50,
     "SEM_CINTO": 50,
     "BOCEJO": 10,
